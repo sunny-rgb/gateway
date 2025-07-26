@@ -1,5 +1,6 @@
 package conf
 
+// 对应 configs/router.json
 var Routes map[string]Route
 
 type Route struct {
