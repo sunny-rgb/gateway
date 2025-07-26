@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-gateway
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: gateway
+    ports:
+      - "13307:3306"
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+    networks:
+      - gateway_net
+
+  redis:
+    image: redis:6.2
+    container_name: redis-gateway
+    restart: always
+    command: redis-server --requirepass 123456
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/data:/data
+    networks:
+      - gateway_net
+
+volumes:
+  mysql_data:
+  redis_data:
+
+networks:
+  gateway_net:
+    driver: bridge

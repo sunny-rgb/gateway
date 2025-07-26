@@ -1,5 +1,5 @@
 # Generated with protoc-gen-openapi
-# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/apps/protoc-gen-openapi
 
 openapi: 3.0.3
 info:
@@ -11,7 +11,6 @@ paths:
         get:
             tags:
                 - Greeter
-                - subgroup
             description: Sends a greeting
             operationId: Greeter_SayHello
             parameters:
@@ -26,10 +25,10 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/helloworld.v1.HelloReply'
+                                $ref: '#/components/schemas/HelloReply'
 components:
     schemas:
-        helloworld.v1.HelloReply:
+        HelloReply:
             type: object
             properties:
                 message:
