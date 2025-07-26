@@ -4,8 +4,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/BitofferHub/gateway/limiter"
-	"github.com/BitofferHub/pkg/middlewares/discovery"
 	"github.com/redis/go-redis/v9"
 	"os"
 	"time"
@@ -54,6 +52,7 @@ func newApp(logger log.Logger, gs *grpc.Server, hs2 *http.Server) *kratos.App {
 }
 
 func main() {
+	fmt.Println("come into main")
 	flag.Parse()
 	logger := log.With(log.NewStdLogger(os.Stdout),
 		"ts", log.DefaultTimestamp,
@@ -69,6 +68,7 @@ func main() {
 			file.NewSource(flagconf),
 		),
 	)
+	//spew.Dump(c)
 	defer c.Close()
 
 	if err := c.Load(); err != nil {
@@ -79,18 +79,30 @@ func main() {
 	if err := c.Scan(&bc); err != nil {
 		panic(err)
 	}
-	initClient(bc.Data)
-	var endpoints = []string{bc.Micro.GetLb().GetAddr()}
-	//discovery.InitServiceDiscovery(endpoints, []string{"user-svr", "sec_kill-svr"})
-	discovery.InitServiceDiscovery(endpoints, bc.Micro.GetLb().GetDisSvrList())
-	err := limiter.InitLimiter("../../configs/router.json", rdb,
-		3, 10, 100)
-	if err != nil {
-		fmt.Println("panic : ", err)
-		panic(err)
-	}
-	fmt.Println("come into wireapp")
-	app, cleanup, err := wireApp(bc.Server, bc, logger)
+
+	//// 进入自定义部分
+	//fmt.Println("come into initClient")
+	//initClient(bc.Data)
+	//
+	//var endpoints = []string{bc.Micro.GetLb().GetAddr()}
+	//spew.Dump(endpoints)
+	//
+	//fmt.Println("come into discovery")
+	////discovery.InitServiceDiscovery(endpoints, []string{"user-svr", "sec_kill-svr"})
+	//discovery.InitServiceDiscovery(endpoints, bc.Micro.GetLb().GetDisSvrList())
+	//
+	//fmt.Println("come into limiter")
+	//err := limiter.InitLimiter("../../configs/router.json", rdb,
+	//err := limiter.InitLimiter("../../../configs/router.json", rdb,
+	////	3, 10, 100)
+	//if err != nil {
+	//	fmt.Println("panic : ", err)
+	//	panic(err)
+	//}
+
+	fmt.Println("come into wireApp")
+	//app, cleanup, err := wireApp(bc.Server, bc, logger)
+	app, cleanup, err := wireApp(bc.Server, bc.Data, bc.Micro, logger)
 	if err != nil {
 		panic(err)
 	}
