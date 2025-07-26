@@ -1,0 +1,22 @@
+server:
+  http:
+    addr: 0.0.0.0:8998
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:8999
+    timeout: 1s
+data:
+  database:
+    driver: mysql
+    source: root:123456@tcp(192.168.5.51:3306)/lottery_system
+  redis:
+    addr: 192.168.5.52:6379
+    db: 8
+    passWord: "123456"
+    read_timeout: 2s
+    write_timeout: 2s
+
+micro:
+  lb:
+    addr: 192.168.5.51:20000
+    disSvrList: ["user-svr", "sec_kill-svr","lottery-svr"]
