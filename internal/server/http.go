@@ -1,10 +1,10 @@
 package server
 
 import (
-	v1 "github.com/BitofferHub/gateway/api/helloworld/v1"
-	"github.com/BitofferHub/gateway/internal/conf"
-	"github.com/BitofferHub/gateway/internal/pkg/middleware/auth"
-	"github.com/BitofferHub/gateway/internal/service"
+	v1 "gateway/api/helloworld/v1"
+	"gateway/internal/conf"
+	"gateway/internal/pkg/middleware/auth"
+	"gateway/internal/service"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/transport/http"

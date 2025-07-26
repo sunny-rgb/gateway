@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	v1 "github.com/BitofferHub/gateway/api/helloworld/v1"
-	"github.com/BitofferHub/gateway/internal/biz"
+	v1 "gateway/api/helloworld/v1"
+	"gateway/internal/biz"
 )
 
 // GreeterService is a greeter service.

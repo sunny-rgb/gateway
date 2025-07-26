@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/BitofferHub/gateway/internal/conf"
-	"github.com/BitofferHub/gateway/rpc"
+	"gateway/internal/conf"
+	"gateway/rpc"
 
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"

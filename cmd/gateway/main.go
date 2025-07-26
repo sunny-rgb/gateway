@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/BitofferHub/gateway/internal/conf"
+	"gateway/internal/conf"
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"

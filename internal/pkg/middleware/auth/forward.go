@@ -2,7 +2,7 @@ package auth
 
 import (
 	"context"
-	"github.com/BitofferHub/gateway/internal/conf"
+	"gateway/internal/conf"
 	"github.com/BitofferHub/pkg/constant"
 	"github.com/BitofferHub/pkg/middlewares/discovery"
 	"github.com/gin-gonic/gin"

@@ -3,7 +3,7 @@ package data
 import (
 	"context"
 
-	"github.com/BitofferHub/gateway/internal/biz"
+	"gateway/internal/biz"
 
 	"github.com/go-kratos/kratos/v2/log"
 )

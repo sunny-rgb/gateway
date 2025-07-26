@@ -3,7 +3,7 @@ package limiter
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/BitofferHub/gateway/internal/conf"
+	"gateway/internal/conf"
 	"github.com/redis/go-redis/v9"
 	"os"
 )

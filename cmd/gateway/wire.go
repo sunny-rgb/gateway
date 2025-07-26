@@ -10,11 +10,11 @@ import (
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
 
-	"github.com/BitofferHub/gateway/internal/biz"
-	"github.com/BitofferHub/gateway/internal/conf"
-	"github.com/BitofferHub/gateway/internal/data"
-	"github.com/BitofferHub/gateway/internal/server"
-	"github.com/BitofferHub/gateway/internal/service"
+	"gateway/internal/biz"
+	"gateway/internal/conf"
+	"gateway/internal/data"
+	"gateway/internal/server"
+	"gateway/internal/service"
 )
 
 // wireApp init kratos application.

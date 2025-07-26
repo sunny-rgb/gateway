@@ -3,8 +3,8 @@ package limiter
 import (
 	"context"
 	"crypto/tls"
-	"github.com/BitofferHub/gateway/internal/conf"
-	"github.com/BitofferHub/gateway/limiter/tb"
+	"gateway/internal/conf"
+	"gateway/limiter/tb"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/redis/go-redis/v9"
 	"golang.org/x/time/rate"
