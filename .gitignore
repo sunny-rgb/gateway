@@ -36,3 +36,6 @@ bin/
 .vscode/
 .idea/
 *.swp
+
+deploy/mysql/data
+deploy/redis/data
