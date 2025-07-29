@@ -39,3 +39,4 @@ bin/
 
 deploy/mysql/data
 deploy/redis/data
+deploy/etcd
